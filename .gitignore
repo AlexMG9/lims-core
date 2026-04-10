@@ -1,0 +1,73 @@
+# =====================================================
+# LIMS-CORE .gitignore
+# =====================================================
+
+# Environment variables (sensitive)
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+.eggs/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+
+# IDE and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Docker volumes (local data)
+mysql_data/
+nocodb_data/
+
+# AI agent configuration
+.claude/
+
+# SQL backups
+sql/*.backup*
+sql/*.bak
+
+# Streamlit cache
+.streamlit/cache/
+
+# Temporary files
+*.tmp
+*.temp

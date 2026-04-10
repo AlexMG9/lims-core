@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+            @bottom-right {
+                content: "Pág " counter(page) " de " counter(pages);
+                font-family: Helvetica, sans-serif;
+                font-size: 8pt;
+            }
+        }
+        body { font-family: Helvetica, sans-serif; font-size: 10pt; color: #333; }
+        .header { text-align: center; border-bottom: 2px solid #004080; padding-bottom: 10px; margin-bottom: 20px;}
+        h1 { color: #004080; font-size: 16pt; margin: 0; }
+        
+        .info-grid { width: 100%; margin-bottom: 20px; }
+        .info-grid td { padding: 4px; vertical-align: top; }
+        .label { font-weight: bold; color: #004080; width: 130px; }
+        
+        table.resultados { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        table.resultados th { background-color: #004080; color: white; padding: 6px; text-align: left; font-size: 9pt; }
+        table.resultados td { border-bottom: 1px solid #ddd; padding: 6px; font-size: 9pt; }
+        
+        .footer-firma { margin-top: 40px; page-break-inside: avoid; }
+        .firma-box { border-top: 1px solid #333; width: 80%; margin-top: 40px; padding-top: 5px; font-size: 9pt;}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>CERTIFICADO DE ANÁLISIS</h1>
+        <div style="font-size: 9pt; color: #666;">Orden Nº: {{ ot.cod_orden }}</div>
+    </div>
+
+    <table class="info-grid">
+        <tr>
+            <td class="label">Cliente:</td>
+            <td><strong>{{ cliente.nombre_fiscal if cliente else 'Interno' }}</strong></td>
+            <td class="label">Fecha Recepción:</td>
+            <td>{{ muestra.fecha_recepcion.strftime('%d/%m/%Y') }}</td>
+        </tr>
+        <tr>
+            <td class="label">Referencia:</td>
+            <td>{{ muestra.referencia_cliente_externa }}</td>
+            <td class="label">Fecha Análisis:</td>
+            <td>{{ ot.fecha_inicio.strftime('%d/%m/%Y') }}</td>
+        </tr>
+        <tr>
+            <td class="label">Muestra LIMS:</td>
+            <td>{{ muestra.codigo_laboratorio }}</td>
+            <td class="label">Método / PNT:</td>
+            <td>{{ pnt.codigo_pnt }} - {{ pnt.nombre_ensayo }}</td>
+        </tr>
+    </table>
+
+    <h3 style="color: #004080; border-bottom: 1px solid #ccc;">Resultados Analíticos</h3>
+    <table class="resultados">
+        <thead>
+            <tr>
+                <th>Parámetro</th>
+                <th>Resultado</th>
+                <th>Unidad</th>
+                <th>Especificación (Límites)</th>
+                <th>Método</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for res in resultados %}
+            <tr>
+                <td>{{ res.parametro }}</td>
+                <td><strong>{{ res.valor }}</strong></td>
+                <td>{{ res.unidad }}</td>
+                <td>
+                    {% if res.min is not none and res.max is not none %}
+                        {{ res.min }} - {{ res.max }}
+                    {% elif res.min is not none %}
+                        > {{ res.min }}
+                    {% elif res.max is not none %}
+                        < {{ res.max }}
+                    {% else %}
+                        N/A
+                    {% endif %}
+                </td>
+                <td>{{ res.metodo }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="footer-firma">
+        <table style="width: 100%">
+            <tr>
+                <td style="width: 50%">
+                    <div class="firma-box">
+                        <strong>Analizado por:</strong><br>
+                        {{ analista.nombre_completo if analista else 'Técnico de Laboratorio' }}<br>
+                        <em style="font-size: 8pt">Firma Electrónica LIMS</em>
+                    </div>
+                </td>
+                <td style="width: 50%">
+                    <div class="firma-box">
+                        <strong>Aprobado por:</strong><br>
+                        Responsable de Calidad<br>
+                        <em style="font-size: 8pt">Fecha: {{ fecha_impresion }}</em>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

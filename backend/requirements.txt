@@ -1,0 +1,17 @@
+fastapi>=0.109.0
+uvicorn>=0.27.0
+pydantic>=2.6.0
+python-multipart>=0.0.9
+sqlalchemy>=2.0.23
+mysql-connector-python>=8.2.0
+python-dotenv>=1.0.0
+cryptography>=42.0.0
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4
+bcrypt==4.0.1
+email-validator>=2.1.0python-multipart
+python-multipart
+WeasyPrint
+Jinja2
+WeasyPrint
+Jinja2

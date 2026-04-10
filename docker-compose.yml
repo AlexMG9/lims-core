@@ -1,0 +1,51 @@
+services:
+  # --- BASE DE DATOS (Ya la tenías) ---
+  db_lims:
+    image: mysql:8.0
+    container_name: lims_mysql
+    restart: unless-stopped
+    env_file:
+      - .env
+    command: --default-authentication-plugin=mysql_native_password --log_bin_trust_function_creators=1
+    ports:
+      - "3306:3306"
+    volumes:
+      - lims_data:/var/lib/mysql
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # --- API BACKEND ---
+  app_backend:
+    build: ./backend             # Busca el Dockerfile en la carpeta backend
+    container_name: lims_api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env                     # Comparte contraseñas con la DB
+    depends_on:
+      db_lims:
+        condition: service_healthy # Espera a que MySQL esté listo
+    volumes:
+      - ./backend:/app           # "Hot Reload" para desarrollo
+
+# --- FRONTEND ---
+  app_frontend:
+    build: ./frontend
+    container_name: lims_gui_app
+    restart: unless-stopped
+    ports:
+      - "8501:8501"  # Puerto estándar de Streamlit
+    environment:
+      # URL interna: el frontend llama al backend usando el nombre del servicio Docker
+      - API_URL=http://app_backend:8000
+    depends_on:
+      - app_backend
+    volumes:
+      - ./frontend:/app
+
+volumes:
+  lims_data:

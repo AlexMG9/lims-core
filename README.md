@@ -66,15 +66,15 @@ LIMS Core is a working prototype that covers this lifecycle in a single system: 
 ## Architecture
 
 ```
-┌─────────────┐     HTTP/REST      ┌─────────────────┐     SQLAlchemy ORM     ┌──────────────┐
-│  Streamlit   │ ◄────────────────► │    FastAPI       │ ◄──────────────────► │   MySQL 8.0   │
-│  Frontend    │     Port 8501      │    Backend       │                      │   Database    │
-│              │                    │    JWT auth      │                      │               │
-│  - Pages     │                    │    Pydantic V2   │                      │   Views       │
-│  - Filters   │                    │    WeasyPrint    │                      │   Triggers    │
-└─────────────┘                    └─────────────────┘                      └──────────────┘
-       │                                   │                                       │
-       └───────────────────────────────────┴───────────────────────────────────────┘
+┌─────────────┐     HTTP/REST      ┌─────────────────┐    SQLAlchemy ORM      ┌──────────────┐
+│  Streamlit  │ ◄────────────────► │    FastAPI      │ ◄───────────────────►  │   MySQL 8.0  │
+│  Frontend   │     Port 8501      │    Backend      │                        │   Database   │
+│             │                    │    JWT auth     │                        │              │
+│  - Pages    │                    │    Pydantic V2  │                        │   Views      │
+│  - Filters  │                    │    WeasyPrint   │                        │   Triggers   │
+└─────────────┘                    └─────────────────┘                        └──────────────┘
+       │                                   │                                         │
+       └───────────────────────────────────┴─────────────────────────────────────────┘
                                     Docker Compose
                                   (3 services, 1 named volume)
 ```

@@ -66,12 +66,12 @@ LIMS Core es un prototipo funcional que cubre este ciclo en un único sistema: g
 ## Arquitectura
 
 ```
-┌─────────────┐     HTTP/REST      ┌─────────────────┐     SQLAlchemy ORM     ┌──────────────┐
-│  Streamlit   │ ◄────────────────► │    FastAPI       │ ◄──────────────────► │   MySQL 8.0   │
-│  Frontend    │     Puerto 8501    │    Backend       │                      │   Base datos  │
-│              │                    │    JWT auth      │                      │               │
-│  - Páginas   │                    │    Pydantic V2   │                      │   Vistas      │
-│  - Filtros   │                    │    WeasyPrint    │                      │   Triggers    │
+┌─────────────┐     HTTP/REST      ┌─────────────────┐     SQLAlchemy ORM   ┌──────────────┐
+│  Streamlit  │ ◄────────────────► │    FastAPI      │ ◄──────────────────► │   MySQL 8.0  │
+│  Frontend   │     Puerto 8501    │    Backend      │                      │   Base datos │
+│             │                    │    JWT auth     │                      │              │
+│  - Páginas  │                    │    Pydantic V2  │                      │   Vistas     │
+│  - Filtros  │                    │    WeasyPrint   │                      │   Triggers   │
 └─────────────┘                    └─────────────────┘                      └──────────────┘
        │                                   │                                       │
        └───────────────────────────────────┴───────────────────────────────────────┘

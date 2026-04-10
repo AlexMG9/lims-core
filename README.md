@@ -231,9 +231,9 @@ docker compose down -v     # Stop and reset database (full clean start)
 
 **Alejandro Martín García**
 
-PhD in Analytical Chemistry (University of Seville, 2024) · IT Specialist (ASIR — Network Systems Administration)
+PhD Analytical Chemistry · IT Specialist
 
-Experience in method development and validation under ISO 17025, analytical instrumentation (LC-MS/MS, GC-MS/MS, ICP-MS/OES, HPLC-DAD), and laboratory automation with Python, SQL, and VBA.
+Background in ISO 17025 laboratory environments. Built this project to solve problems I encountered working with analytical data management in accredited labs.
 
 [LinkedIn](https://www.linkedin.com/in/alejandromartingarcia) · alex.martn.garcia@gmail.com
 

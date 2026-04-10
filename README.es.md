@@ -231,9 +231,9 @@ docker compose down -v     # Parar y resetear la base de datos (arranque limpio)
 
 **Alejandro Martín García**
 
-Doctor en Química Analítica (Universidad de Sevilla, 2024) · Técnico Superior en Administración de Sistemas Informáticos en Red (ASIR)
+Doctor en Química Analítica · Técnico en Informática
 
-Experiencia en desarrollo y validación de métodos bajo ISO 17025, instrumentación analítica (LC-MS/MS, GC-MS/MS, ICP-MS/OES, HPLC-DAD), y automatización de laboratorio con Python, SQL y VBA.
+Experiencia en laboratorios acreditados bajo ISO 17025. Este proyecto nace de problemas reales que encontré trabajando con la gestión de datos analíticos en esos entornos.
 
 [LinkedIn](https://www.linkedin.com/in/alejandromartingarcia) · alex.martn.garcia@gmail.com
 

@@ -235,7 +235,7 @@ PhD Analytical Chemistry · IT Specialist
 
 Background in ISO 17025 laboratory environments. Built this project to solve problems I encountered working with analytical data management in accredited labs.
 
-[LinkedIn](https://www.linkedin.com/in/alejandromartingarcia) · alex.martn.garcia@gmail.com
+[LinkedIn](https://www.linkedin.com/in/alejandro-martingarcia/) · alex.martn.garcia@gmail.com
 
 ## License
 

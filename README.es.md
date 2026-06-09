@@ -235,7 +235,7 @@ Doctor en Química Analítica · Técnico en Informática
 
 Experiencia en laboratorios acreditados bajo ISO 17025. Este proyecto nace de problemas reales que encontré trabajando con la gestión de datos analíticos en esos entornos.
 
-[LinkedIn](https://www.linkedin.com/in/alejandromartingarcia) · alex.martn.garcia@gmail.com
+[LinkedIn](https://www.linkedin.com/in/alejandro-martingarcia/) · alex.martn.garcia@gmail.com
 
 ## Licencia
 

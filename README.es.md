@@ -65,7 +65,7 @@ LIMS Core es un prototipo funcional que cubre este ciclo en un único sistema: g
 
 ## Arquitectura
 
-```
+```text
 ┌─────────────┐     HTTP/REST      ┌─────────────────┐     SQLAlchemy ORM   ┌──────────────┐
 │  Streamlit  │ ◄────────────────► │    FastAPI      │ ◄──────────────────► │   MySQL 8.0  │
 │  Frontend   │     Puerto 8501    │    Backend      │                      │   Base datos │
@@ -121,7 +121,7 @@ Decisiones de diseño que reflejan el dominio de laboratorio:
 
 ## Estructura del repositorio
 
-```
+```text
 lims-core/
 ├── backend/
 │   ├── routers/          # Endpoints API por dominio (auth, recepción, ejecución, calidad, ...)
